@@ -1,0 +1,1690 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Randonnée | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<h1 class="text-center">{{title}}</h1>
+    <container class="example-wrapper">
+        <div class="row">
+            <!-- FEATURETTE 1 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef1}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes1}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu1">
+                    <input class="button1" type="button"><i class="fas fa-info one"></i></input>
+                    <button class="icone1 carte" type="button"><i class="fas fa-map-marked-alt one"></i></button>
+                    <button class="icone1 meteo" id="meteo1" type="button" long="55.670725" lat="-21.232485"><i class="fas fa-cloud-sun one"></i>
+                        <!-- BOITE METEO 1 -->
+                        <div class="boitemeteo1">
+
+                        <div class="overlay-icone-chargement">
+                            <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                        </div>
+
+                        <div class="bloc-logo-info">
+
+                            <div class="bloc-logo">
+                                <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                            </div>
+
+                            <div class="bloc-info">
+                                <p class="temps"></p>
+                                <p class="temperature"></p>
+                                <p class="localisation"></p>
+                            </div>
+
+                            <a href="#menuclose" class="closemeteo">&times;</a>
+                            
+                        </div>
+
+                        <div class="heure-bloc-prevision">
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                        </div>
+
+                        <div class="jour-prevision-bloc">
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- BOITE METEO 1 FIN -->
+                    </button>
+                    <button class="icone1 equipement" type="button"><i class="fas fa-hiking one"></i></button>
+                    <button class="icone1 accès" type="button"><i class="fas fa-wheelchair one"></i></button>
+                    <button class="icone1 food" type="button"><i class="fas fa-hamburger one"></i></button>
+                </div>
+            </div>
+            <!-- FEATURETTE 1 FIN -->
+
+            <!-- FEATURETTE 2 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef2}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes2}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu2">
+                    <input class="button2" type="button"><i class="fas fa-info two"></i></input>
+                    <button class="icone2 carte" type="button"><i class="fas fa-map-marked-alt two"></i></button>
+                    <button class="icone2 meteo" id="meteo2" type="button" long="55.221645" lat="-21.077855"><i class="fas fa-cloud-sun two"></i>
+                        <!-- BOITE METEO 2 -->
+                        <div class="boitemeteo2">
+
+                        <div class="overlay-icone-chargement">
+                            <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                        </div>
+
+                        <div class="bloc-logo-info">
+
+                            <div class="bloc-logo">
+                                <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                            </div>
+
+                            <div class="bloc-info">
+                                <p class="temps"></p>
+                                <p class="temperature"></p>
+                                <p class="localisation"></p>
+                            </div>
+
+                            <a href="#menuclose" class="closemeteo">&times;</a>
+                            
+                        </div>
+
+                        <div class="heure-bloc-prevision">
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                            <div class="bloc-h">
+                                <p class="heure-nom-prevision"></p>
+                                <p class="heure-prevision-valeur"></p>
+                            </div>
+                        </div>
+
+                        <div class="jour-prevision-bloc">
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                            <div class="bloc-j">
+                                <p class="jour-prevision-nom"></p>
+                                <p class="jour-prevision-temp"></p>
+                            </div>
+                        </div>
+                        </div>
+                        <!-- BOITE METEO 2 FIN -->
+                    </button>
+                    <button class="icone2 equipement" type="button"><i class="fas fa-hiking two"></i></button>
+                    <button class="icone2 accès" type="button"><i class="fas fa-wheelchair two"></i></button>
+                    <button class="icone2 food" type="button"><i class="fas fa-hamburger two"></i></button>
+                </div>
+            </div>
+            <!-- FEATURETTE 2 FIN -->
+        </div>
+    </container>
+
+    <!-- FEATURETTE 3 PANORAMIQUE -->
+    <div class="pano">
+        <container class="example-wrapper">
+            <h2>{{titlef3}}</h2>
+            <section>
+                <p class="espace"></p>
+            </section>
+            <container class="d-flex justify-content-center">
+                <img src="{{featurettes3}}" class="img-fluid img-thumbnail shadow">
+            </container>
+        </container>
+        <div class="menu3">
+            <input class="button3" type="button"><i class="fas fa-info three"></i></input>
+            <button class="icone3 carte" type="button"><i class="fas fa-map-marked-alt three"></i></button>
+            <button class="icone3 meteo" id="meteo3" type="button" long="55.472515" lat="-21.136057"><i class="fas fa-cloud-sun three"></i>
+                <!-- BOITE METEO 3 -->
+                <div class="boitemeteo3">
+
+                    <div class="overlay-icone-chargement pano">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info pano">
+
+                        <div class="bloc-logo pano">
+                            <img src="./ressources/jour/04d.svg" alt="logo" class="logo-meteo pano">
+                        </div>
+
+                        <div class="bloc-info pano">
+                            <p class="temps pano"></p>
+                            <p class="temperature pano"></p>
+                            <p class="localisation pano"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteopano">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision pano">
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc pano">
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOITE METEO 3 FIN -->
+            </button>
+            <button class="icone3 equipement" type="button"><i class="fas fa-hiking three"></i></button>
+            <button class="icone3 accès" type="button"><i class="fas fa-wheelchair three"></i></button>
+            <button class="icone3 food" type="button"><i class="fas fa-hamburger three"></i></button>
+        </div>
+    </div>
+    <!-- FEATURETTE 3 PANORAMIQUE FIN -->
+
+    <container class="example-wrapper">
+        <div class="row">
+            <!-- FEATURETTE 4 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef4}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes4}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu4">
+                    <input class="button4" type="button"><i class="fas fa-info for"></i></input>
+                    <button class="icone4 carte" type="button"><i class="fas fa-map-marked-alt for"></i></button>
+                    <button class="icone4 meteo" id="meteo4" type="button" long="55.732463" lat="-21.369165"><i class="fas fa-cloud-sun for"></i>
+                        <!-- BOITE METEO 4 -->
+                        <div class="boitemeteo4">
+
+                    <div class="overlay-icone-chargement">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info">
+
+                        <div class="bloc-logo">
+                            <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                        </div>
+
+                        <div class="bloc-info">
+                            <p class="temps"></p>
+                            <p class="temperature"></p>
+                            <p class="localisation"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteo">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision">
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc">
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                        </div>
+                        <!-- BOITE METEO 4 FIN -->
+                    </button>
+                    <button class="icone4 equipement" type="button"><i class="fas fa-hiking for"></i></button>
+                    <button class="icone4 accès" type="button"><i class="fas fa-wheelchair for"></i></button>
+                    <button class="icone4 food" type="button"><i class="fas fa-hamburger for"></i></button> 
+                </div>
+            </div>
+            <!-- FEATURETTE 4 FIN -->
+
+            <!-- FEATURETTE 5 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef5}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes5}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu5">
+                    <input class="button5" type="button"><i class="fas fa-info five"></i></input>
+                    <button class="icone5 carte" type="button"><i class="fas fa-map-marked-alt five"></i></button>
+                    <button class="icone5 meteo" id="meteo5" type="button" long="55.553105" lat="-21.038142"><i class="fas fa-cloud-sun five"></i>
+                        <!-- BOITE METEO 5 -->
+                        <div class="boitemeteo5">
+
+                    <div class="overlay-icone-chargement">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info">
+
+                        <div class="bloc-logo">
+                            <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                        </div>
+
+                        <div class="bloc-info">
+                            <p class="temps"></p>
+                            <p class="temperature"></p>
+                            <p class="localisation"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteo">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision">
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc">
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                        </div>
+                        <!-- BOITE METEO 5 FIN -->
+                    </button>
+                    <button class="icone5 equipement" type="button"><i class="fas fa-hiking five"></i></button>
+                    <button class="icone5 accès" type="button"><i class="fas fa-wheelchair five"></i></button>
+                    <button class="icone5 food" type="button"><i class="fas fa-hamburger five"></i></button>
+                </div>
+            </div>
+            <!-- FEATURETTE 5 FIN -->
+        </div>
+    </container>
+
+    <!-- FEATURETTE 6 PANORAMIQUE -->
+    <div class="pano">
+        <container class="example-wrapper">
+            <h2>{{titlef6}}</h2>
+            <section>
+                <p class="espace"></p>
+            </section>
+            <container class="d-flex justify-content-center">
+                <img src="{{featurettes6}}" class="img-fluid img-thumbnail shadow">
+            </container>
+        </container>
+        <div class="menu6">
+            <input class="button6" type="button"><i class="fas fa-info six"></i></input>
+            <button class="icone6 carte" type="button"><i class="fas fa-map-marked-alt six"></i></button>
+            <button class="icone6 meteo" id="meteo6" type="button" long="55.426784" lat="-21.050077"><i class="fas fa-cloud-sun six"></i>
+                <!-- BOITE METEO 6 -->
+                <div class="boitemeteo6">
+                    <div class="overlay-icone-chargement pano">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info pano">
+
+                        <div class="bloc-logo pano">
+                            <img src="./ressources/jour/04d.svg" alt="logo" class="logo-meteo pano">
+                        </div>
+
+                        <div class="bloc-info pano">
+                            <p class="temps pano"></p>
+                            <p class="temperature pano"></p>
+                            <p class="localisation pano"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteopano">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision pano">
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc pano">
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOITE METEO 6 FIN -->
+            </button>
+            <button class="icone6 equipement" type="button"><i class="fas fa-hiking six"></i></button>
+            <button class="icone6 accès" type="button" type="button"><i class="fas fa-wheelchair six"></i></button>
+            <button class="icone6 food" type="button"><i class="fas fa-hamburger six"></i></button>
+        </div>
+    </div>
+    <!-- FEATURETTE 6 PANORAMIQUE FIN -->
+
+    <container class="example-wrapper">
+        <div class="row">
+            <!-- FEATURETTE 7 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef7}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes7}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu7">
+                    <input class="button7" type="button"><i class="fas fa-info seven"></i></input>
+                    <button class="icone7 carte" type="button"><i class="fas fa-map-marked-alt seven"></i></button>
+                    <button class="icone7 meteo" id="meteo7" type="button" long="55.536909" lat="-21.190691"><i class="fas fa-cloud-sun seven"></i>
+                        <!-- BOITE METEO 7 -->
+                        <div class="boitemeteo7">
+
+                    <div class="overlay-icone-chargement">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info">
+
+                        <div class="bloc-logo">
+                            <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                        </div>
+
+                        <div class="bloc-info">
+                            <p class="temps"></p>
+                            <p class="temperature"></p>
+                            <p class="localisation"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteo">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision">
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc">
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                        </div>
+                        <!-- BOITE METEO 7 FIN -->
+                    </button>
+                    <button class="icone7 equipement" type="button"><i class="fas fa-hiking seven"></i></button>
+                    <button class="icone7 accès" type="button"><i class="fas fa-wheelchair seven"></i></button>
+                    <button class="icone7 food" type="button"><i class="fas fa-hamburger seven"></i></button>
+                </div>
+            </div>
+            <!-- FEATURETTE 7 FIN -->
+
+            <!-- FEATURETTE 8 -->
+            <div class="col-12 col-md-6">
+                <h2>{{titlef8}}</h2>
+                <section>
+                    <p class="espace"></p>
+                </section>
+                <img src="{{featurettes8}}" class="img-fluid img-thumbnail shadow">
+                <div class="menu8">
+                    <input class="button8" type="button"><i class="fas fa-info eight"></i></input>
+                    <button class="icone8 carte" type="button"><i class="fas fa-map-marked-alt eight"></i></button>
+                    <button class="icone8 meteo" id="meteo8" type="button" long="55.525497" lat="-21.051795"><i class="fas fa-cloud-sun eight"></i>
+                        <!-- BOITE METEO 8 -->
+                        <div class="boitemeteo8">
+
+                    <div class="overlay-icone-chargement">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info">
+
+                        <div class="bloc-logo">
+                            <img src="./ressources/jour/04d.svg" alt="logo du temps qu'il fait" class="logo-meteo">
+                        </div>
+
+                        <div class="bloc-info">
+                            <p class="temps"></p>
+                            <p class="temperature"></p>
+                            <p class="localisation"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteo">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision">
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc">
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                        </div>
+                        <!-- BOITE METEO 8 FIN -->
+                    </button>
+                    <button class="icone8 equipement" type="button"><i class="fas fa-hiking eight"></i></button>
+                    <button class="icone8 accès" type="button"><i class="fas fa-wheelchair eight"></i></button>
+                    <button class="icone8 food" type="button"><i class="fas fa-hamburger eight"></i></button> 
+                </div>
+
+            </div>
+            <!-- FEATURETTE 8 FIN -->
+        </div>
+    </container>
+
+    <!-- FEATURETTE 9 PANORAMIQUE -->
+    <div class="pano">
+        <container class="example-wrapper">
+            <h2>{{titlef9}}</h2>
+            <section>
+                <p class="espace"></p>
+            </section>
+            <container class="d-flex justify-content-center">
+                <img src="{{featurettes9}}" class="img-fluid img-thumbnail shadow">
+            </container>
+        </container>
+        <div class="menu9">
+            <input class="button9" type="button"><i class="fas fa-info nine"></i></input>
+            <button class="icone9 carte" type="button"><i class="fas fa-map-marked-alt nine"></i></button>
+            <button class="icone9 meteo" id="meteo9" type="button" long="55.472515" lat="-21.1360575"><i class="fas fa-cloud-sun nine"></i>
+                <!-- BOITE METEO 9 -->
+                <div class="boitemeteo9">
+                    <div class="overlay-icone-chargement pano">
+                        <img src="ressources/chargement/circles.svg" alt="logo chargement">
+                    </div>
+
+                    <div class="bloc-logo-info pano">
+
+                        <div class="bloc-logo pano">
+                            <img src="./ressources/jour/04d.svg" alt="logo" class="logo-meteo pano">
+                        </div>
+
+                        <div class="bloc-info pano">
+                            <p class="temps pano"></p>
+                            <p class="temperature pano"></p>
+                            <p class="localisation pano"></p>
+                        </div>
+
+                        <a href="#menuclose" class="closemeteopano">&times;</a>
+                        
+                    </div>
+
+                    <div class="heure-bloc-prevision pano">
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                        <div class="bloc-h pano">
+                            <p class="heure-nom-prevision"></p>
+                            <p class="heure-prevision-valeur"></p>
+                        </div>
+                    </div>
+
+                    <div class="jour-prevision-bloc pano">
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                        <div class="bloc-j pano">
+                            <p class="jour-prevision-nom"></p>
+                            <p class="jour-prevision-temp"></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- BOITE METEO 9 FIN -->
+            </button>
+            <button class="icone9 equipement" type="button"><i class="fas fa-hiking nine"></i></button>
+            <button class="icone9 accès" type="button"><i class="fas fa-wheelchair nine"></i></button>
+            <button class="icone9 food" type="button"><i class="fas fa-hamburger nine"></i></button>
+        </div>
+    </div>
+    <!-- FEATURETTE 9 PANORAMIQUE FIN -->
+
+
+
+    <!--JAVASCRIPT-->
+<script>
+    // BOUTONS FEATURETTES
+    $(".button1").click(function () {
+        $(".icone1.carte").toggleClass("clicked");
+        $(".icone1.meteo").toggleClass("clicked");
+        $(".icone1.equipement").toggleClass("clicked");
+        $(".icone1.food").toggleClass("clicked");
+        $(".icone1.accès").toggleClass("clicked");
+    })
+
+    $(".button2").click(function () {
+        $(".icone2.meteo").toggleClass("clicked");
+        $(".icone2.equipement").toggleClass("clicked");
+        $(".icone2.carte").toggleClass("clicked");
+        $(".icone2.food").toggleClass("clicked");
+        $(".icone2.accès").toggleClass("clicked");
+    })
+
+    $(".button3").click(function () {
+        $(".icone3.meteo").toggleClass("clicked");
+        $(".icone3.equipement").toggleClass("clicked");
+        $(".icone3.carte").toggleClass("clicked");
+        $(".icone3.food").toggleClass("clicked");
+        $(".icone3.accès").toggleClass("clicked");
+    })
+
+    $(".button4").click(function () {
+        $(".icone4.meteo").toggleClass("clicked");
+        $(".icone4.equipement").toggleClass("clicked");
+        $(".icone4.carte").toggleClass("clicked");
+        $(".icone4.food").toggleClass("clicked");
+        $(".icone4.accès").toggleClass("clicked");
+    })
+
+    $(".button5").click(function () {
+        $(".icone5.meteo").toggleClass("clicked");
+        $(".icone5.equipement").toggleClass("clicked");
+        $(".icone5.carte").toggleClass("clicked");
+        $(".icone5.food").toggleClass("clicked");
+        $(".icone5.accès").toggleClass("clicked");
+    })
+
+    $(".button6").click(function () {
+        $(".icone6.meteo").toggleClass("clicked");
+        $(".icone6.equipement").toggleClass("clicked");
+        $(".icone6.carte").toggleClass("clicked");
+        $(".icone6.food").toggleClass("clicked");
+        $(".icone6.accès").toggleClass("clicked");
+    })
+
+    $(".button7").click(function () {
+        $(".icone7.meteo").toggleClass("clicked");
+        $(".icone7.equipement").toggleClass("clicked");
+        $(".icone7.carte").toggleClass("clicked");
+        $(".icone7.food").toggleClass("clicked");
+        $(".icone7.accès").toggleClass("clicked");
+    })
+
+    $(".button8").click(function () {
+        $(".icone8.meteo").toggleClass("clicked");
+        $(".icone8.equipement").toggleClass("clicked");
+        $(".icone8.carte").toggleClass("clicked");
+        $(".icone8.food").toggleClass("clicked");
+        $(".icone8.accès").toggleClass("clicked");
+    })
+
+    $(".button9").click(function () {
+        $(".icone9.meteo").toggleClass("clicked");
+        $(".icone9.equipement").toggleClass("clicked");
+        $(".icone9.carte").toggleClass("clicked");
+        $(".icone9.food").toggleClass("clicked");
+        $(".icone9.accès").toggleClass("clicked");
+    })
+    // BOUTONS FEATURETTES FIN
+
+
+    // ICONES FEATURETTES
+    $(".icone1.meteo").click(function () {
+        $(".boitemeteo1").toggleClass("clickedmeteo1");
+        $(".icone1.carte,.icone1.equipement,.icone1.accès,.icone1.food,.button1,.fas.fa-info.one,.fas.fa-cloud-sun.one").toggleClass("closed");
+    })
+
+    $(".icone2.meteo").click(function () {
+        $(".boitemeteo2").toggleClass("clickedmeteo2");
+        $(".icone2.carte,.icone2.equipement,.icone2.accès,.icone2.food,.button2,.fas.fa-info.two,.fas.fa-cloud-sun.two").toggleClass("closed");
+    })
+
+    $(".icone3.meteo").click(function () {
+        $(".boitemeteo3").toggleClass("clickedmeteo3");
+        $(".icone3.carte,.icone3.equipement,.icone3.accès,.icone3.food,.button3,.fas.fa-info.three,.fas.fa-cloud-sun.three").toggleClass("closed");
+    })
+
+    $(".icone4.meteo").click(function () {
+        $(".boitemeteo4").toggleClass("clickedmeteo4");
+        $(".icone4.carte,.icone4.equipement,.icone4.accès,.icone4.food,.button4,.fas.fa-info.for,.fas.fa-cloud-sun.for").toggleClass("closed");
+    })
+
+    $(".icone5.meteo").click(function () {
+        $(".boitemeteo5").toggleClass("clickedmeteo5");
+        $(".icone5.carte,.icone5.equipement,.icone5.accès,.icone5.food,.button5,.fas.fa-info.five,.fas.fa-cloud-sun.five").toggleClass("closed");
+    })
+
+    $(".icone6.meteo").click(function () {
+        $(".boitemeteo6").toggleClass("clickedmeteo6");
+        $(".icone6.carte,.icone6.equipement,.icone6.accès,.icone6.food,.button6,.fas.fa-info.six,.fas.fa-cloud-sun.six").toggleClass("closed");
+    })
+
+    $(".icone7.meteo").click(function () {
+        $(".boitemeteo7").toggleClass("clickedmeteo7");
+        $(".icone7.carte,.icone7.equipement,.icone7.accès,.icone7.food,.button7,.fas.fa-info.seven,.fas.fa-cloud-sun.seven").toggleClass("closed");
+    })
+
+    $(".icone8.meteo").click(function () {
+        $(".boitemeteo8").toggleClass("clickedmeteo8");
+        $(".icone8.carte,.icone8.equipement,.icone8.accès,.icone8.food,.button8,.fas.fa-info.eight,.fas.fa-cloud-sun.eight").toggleClass("closed");
+    })
+
+    $(".icone9.meteo").click(function () {
+        $(".boitemeteo9").toggleClass("clickedmeteo9");
+        $(".icone9.carte,.icone9.equipement,.icone9.accès,.icone9.food,.button9,.fas.fa-info.nine,.fas.fa-cloud-sun.nine").toggleClass("closed");
+    })
+    // ICONES FEATURETTES FIN
+
+    
+
+
+//API METEO
+const CLEFAPI = '6c768a12332784de4954dddb19d855d9';
+let resultatsAPI;
+
+
+$("#meteo1,#meteo2,#meteo3,#meteo4,#meteo5,#meteo6,#meteo7,#meteo8,#meteo9").on("click",((e) =>{ 
+
+    var el = $(e.currentTarget);
+    var lat =  el.attr("lat");
+    var long=  el.attr("long");
+
+    console.log(long,lat,e);
+
+    AppelAPI(long,lat, el.attr("id"));
+    
+}));
+
+
+
+function AppelAPI(long, lat, pid) {
+
+var temps = $(pid + ' .temps');
+var temperature = document.querySelector('#' + pid + ' .temperature');
+var localisation = document.querySelector('#' + pid + ' .localisation');
+var heure = document.querySelectorAll('#' + pid + ' .heure-nom-prevision');
+var tempPourH = document.querySelectorAll('#' + pid + ' .heure-prevision-valeur');
+var joursDiv = document.querySelectorAll('#' + pid + ' .jour-prevision-nom');
+var tempJoursDiv = document.querySelectorAll('#' + pid + ' .jour-prevision-temp');
+var imgIcone = document.querySelector('#' + pid + ' .logo-meteo');
+var chargementContainer = document.querySelector('#' + pid + ' .overlay-icone-chargement');
+
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely&units=metric&lang=fr&appid=${CLEFAPI}`)
+    .then((reponse) => {
+        return reponse.json();
+    })
+    .then((data) => {
+        console.log(data);
+
+        resultatsAPI = data;
+
+        temps.innerText = resultatsAPI.current.weather[0].description;
+        temperature.innerText = `${Math.trunc(resultatsAPI.current.temp)}°`
+        localisation.innerText = resultatsAPI.timezone;
+
+        // les heures, par tranche de trois, avec leur temperature.
+        let heureActuelle = new Date().getHours();
+
+        for(let i = 0; i < heure.length; i++) {
+
+            let heureIncr = heureActuelle + i * 3;
+
+            if(heureIncr > 24) {
+                heure[i].innerText = `${heureIncr - 24} h`;
+            } else if(heureIncr === 24) {
+                heure[i].innerText = "00 h"
+            } else {
+                heure[i].innerText = `${heureIncr} h`;
+            }
+        }
+
+        // temp pour 3h
+        for(let j = 0; j < tempPourH.length; j++) {
+            tempPourH[j].innerText = `${Math.trunc(resultatsAPI.hourly[j * 3].temp)}°`
+        }
+
+        // trois premieres lettres des jours 
+        for(let k = 0; k < tabJoursEnOrdre.length; k++) {
+            joursDiv[k].innerText = tabJoursEnOrdre[k].slice(0,3);
+        }
+
+        // Temps par jour
+        for(let m = 0; m < 7; m++){
+            tempJoursDiv[m].innerText = `${Math.trunc(resultatsAPI.daily[m + 1].temp.day)}°`
+        }
+
+        // Icone dynamique 
+         if(heureActuelle >= 6 && heureActuelle < 21) {
+             imgIcone.src = `ressources/jour/${resultatsAPI.current.weather[0].icon}.svg`
+         } else  {
+            imgIcone.src = `ressources/nuit/${resultatsAPI.current.weather[0].icon}.svg`
+         }
+
+         chargementContainer.classList.add('disparition');
+    })
+}
+
+const joursSemaine = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+
+let ajd = new Date();
+let options = {weekday: 'long'};
+let jourActuel = ajd.toLocaleDateString('fr-FR', options);
+// console.log(jourActuel, ajd);
+
+jourActuel = jourActuel.charAt(0).toUpperCase() + jourActuel.slice(1);
+
+let tabJoursEnOrdre = joursSemaine.slice(joursSemaine.indexOf(jourActuel)).concat(joursSemaine.slice(0, joursSemaine.indexOf(jourActuel)));
+// console.log(tabJoursEnOrdre);
+
+// API METEO FIN
+
+
+</script>
+<!-- JAVASCRIPT FIN -->
+
+
+
+<style>
+   /* API BOITE METEO PANORAMIQUE */
+    .boitemeteo3,.boitemeteo6,.boitemeteo9 {
+        border: 1px solid #f1f1f1;
+        background: linear-gradient(45deg, #1069b659, #36a33262);
+        border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        display: grid;
+        grid-template: 70px 20px 20px / repeat(7, 37px);
+        height: 72px;
+        margin-top: 765px;
+        margin-bottom: 800px;
+        margin-left: -75px;
+        opacity: 0;
+        position: relative;
+        width: 264px;
+    }
+
+    .bloc-logo-info.pano {
+        align-items: flex-start;
+        display: flex;
+        grid-area: 1 / 1 / 2 / -1;
+        justify-content: center;
+    }
+
+    .bloc-logo.pano {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        margin-top: 4px;
+        width: 20%;
+    }
+
+    .bloc-logo img .pano {
+        width: 90%;
+        height: auto;
+    }
+
+    .bloc-info.pano {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 2px;
+        width: 70%;
+    }
+
+    .bloc-info.temps .pano {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 12px;
+        margin: 0px!important;
+    }
+
+    .bloc-info .pano.temps::first-letter {
+        text-transform: capitalize;
+    }
+
+    .bloc-info .pano.temperature {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 28px;
+        font-size: 18px;
+        margin: 0px!important;
+    }
+
+    .bloc-info .pano.localisation {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 10px;
+        word-wrap: break-word;
+        margin: 0px!important;
+    }
+    
+    .heure-bloc-prevision.pano {
+        grid-area: 2 / 1 / 3 / -1;
+    }
+
+    .jour-prevision-bloc.pano {
+        grid-area: 3 / 1 / 5 / -1;
+    }
+
+    .jour-prevision-bloc.pano, .heure-bloc-prevision.pano {
+        display: grid;
+        grid-template: 20px / repeat(7, 1fr);
+        margin-top: -42px;
+    }
+    
+    .bloc-h.pano, .bloc-j.pano {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-top: 1px solid #f1f1f1;
+        font-size: 7px;
+        margin: 0px!important;
+    }
+    
+    .bloc-h.pano:not(:last-child), .bloc-j.pano:not(:last-child) {
+        border-right: 1px solid #f1f1f1;
+    }
+    
+    .bloc-h.pano p, .bloc-j.pano p {
+        margin: 0px!important;
+    }
+    
+    /* ANIMATION CHARGEMENT */
+    .overlay-icone-chargement.pano {
+        position: absolute;
+        width: 40%;
+        height: 52%;
+        background: linear-gradient(45deg, rgb(27, 96, 175), rgb(30, 99, 34));
+        transition: opacity 1.1s ease-out;
+        z-index: 1000;
+    }
+
+    .overlay-icone-chargement img.pano {
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .disparition.pano {
+        opacity: 0;
+    }
+    /* ANIMATION CHARGEMENT FIN */
+
+    /* BOUTON BOITE METEO CLOSE */
+    .closemeteopano {
+        font-size: 15px;
+        margin-right: 10px;
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+
+    a .pano:hover {
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+    /* BOUTON CLOSE BOITE METEO FIN */
+
+    /* API BOITE METEO PANORAMIQUE FIN */
+
+
+    /* API BOITE METEO */
+    .boitemeteo1,.boitemeteo2,.boitemeteo4,.boitemeteo5,.boitemeteo7,.boitemeteo8 {
+        border: 1px solid #f1f1f1;
+        background: linear-gradient(45deg, #1069b646, #36a33257);
+        border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+        display: grid;
+        grid-template: 70px 30px 30px / repeat(7, 37px);
+        height: auto;
+        margin-top: 690px;
+        margin-bottom: 800px;
+        margin-left: -71px;
+        opacity: 0;
+        position: relative;
+        width: auto;
+    }
+
+    .bloc-logo-info {
+        align-items: center;
+        display: flex;
+        grid-area: 1 / 1 / 2 / -1;
+        justify-content: center;
+    }
+
+    .bloc-logo {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        width: 50%;
+    }
+
+    .bloc-logo img {
+        margin-top: -10px;
+        width: 80%;
+        height: auto;
+    }
+
+    .bloc-info {
+        width: 60%;
+    }
+
+    .bloc-info .temps {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 12px;
+        margin: 0px!important;
+    }
+
+    .bloc-info .temps::first-letter {
+        text-transform: capitalize;
+    }
+
+    .bloc-info .temperature {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: 28px;
+        font-size: 25px;
+        margin: 0px!important;
+    }
+
+    .bloc-info .localisation {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        font-size: 12px;
+        word-wrap: break-word;
+        margin: 0px!important;
+    }
+    
+    .heure-bloc-prevision {
+        grid-area: 2 / 1 / 3 / -1;
+    }
+
+    .jour-prevision-bloc {
+        grid-area: 3 / 1 / 5 / -1;
+    }
+
+    .jour-prevision-bloc, .heure-bloc-prevision {
+        display: grid;
+        grid-template: 35px / repeat(7, 1fr);
+    }
+    
+    .bloc-h, .bloc-j {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-top: 1px solid #f1f1f1;
+        font-size: 10px;
+        margin: 0px!important;
+    }
+    
+    .bloc-h:not(:last-child), .bloc-j:not(:last-child) {
+        border-right: 1px solid #f1f1f1;
+    }
+    
+    .bloc-h p, .bloc-j p {
+        margin: 0px!important;
+    }
+    
+    /* ANIMATION CHARGEMENT */
+    .overlay-icone-chargement {
+        position: absolute;
+        width: 40%;
+        height: 52%;
+        background: linear-gradient(45deg, rgb(27, 96, 175), rgb(30, 99, 34));
+        transition: opacity 1.1s ease-out;
+        z-index: 1000;
+    }
+
+    .overlay-icone-chargement img {
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .disparition {
+        opacity: 0;
+    }
+    /* ANIMATION CHARGEMENT FIN */
+
+    /* BOUTON BOITE METEO CLOSE */
+    .closemeteo {
+        font-size: 15px;
+        margin-right: 10px;
+        text-decoration: none;
+        margin-top: -50px;
+        color: #f1f1f1;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #f1f1f1;
+    }
+    /* BOUTON CLOSE BOITE METEO FIN */
+
+    /* API BOITE METEO FIN */
+
+    
+
+
+    h1 {
+        margin-top: 400px;
+        margin-bottom: 60px;
+        font-size: 30px;
+    }
+
+    h2 {
+        margin-top: 24px;
+        font-size: 20px;
+    }
+
+    .col-12 {
+        margin-bottom: 25px;
+    }
+
+    .espace {
+        height: 5px;
+        margin-bottom: 5px;
+    }
+
+    /* ALL: BOUTON INFO FEATURETTES */
+    .button1:hover,.button2:hover,.button3:hover,.button4:hover,.button5:hover,.button6:hover,.button7:hover,.button8:hover,.button9:hover {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .button1,.button2,.button3,.button4,.button5,.button6,.button7,.button8,.button9 {
+        position: absolute;
+        width: 30px;
+        height: 20px;
+        background: rgba(255, 255, 255, 0.24);
+        border-color: rgba(133, 133, 133, 0.521)!important;
+        border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+
+        -webkit-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        -moz-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        -ms-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        -o-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        transition: all .5s cubic-bezier(.6, 2, .4, 1);
+    }
+    /* ALL: BOUTON INFO FEATURETTES FIN */
+
+    /* MENU BOUTON INFO FEATURETTES */
+    .menu1,.menu2,.menu4,.menu5,.menu7,.menu8 {
+        margin-top: -45px;
+        margin-left: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    /* MENU BOUTON INFO FEATURETTES FIN*/
+
+    /* MENU BOUTON INFO FEATURETTES PANORAMIQUE */
+    .menu3,.menu6,.menu9 {
+        margin-top: -45px;
+        margin-left: 18px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+    /* MENU BOUTON INFO FEATURETTES PANORAMIQUE FIN */
+    
+    /* ICONE FEATURETTES PANORAMIQUE */
+    .icone3,.icone6,.icone9 {
+        opacity: 0;
+        position: relative;
+        margin: 8px;
+        width: 25px;
+        height: 25px;
+        background: rgba(255, 255, 255, 0.24);
+        border-color: rgba(133, 133, 133, 0.212)!important;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        border-radius: 100%;
+        color: #FFF;
+        display: flex;
+        align-items: center;  
+    }
+
+    .icone3 i,.icone6 i,.icone9 i {
+        font-size: 11px;
+    }
+    /* ICONE FEATURETTES PANORAMIQUE FIN */
+
+    /* ICONE FEATURETTES */
+    .icone1,.icone2,.icone4,.icone5,.icone7,.icone8 {
+        opacity: 0;
+        position: relative;
+        margin: 8px;
+        width: 25px;
+        height: 25px;
+        background: rgba(255, 255, 255, 0.24);
+        border-color: rgba(133, 133, 133, 0.404)!important;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+        border-radius: 100%;
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    .icone1 i,.icone2 i,.icone4 i,.icone5 i,.icone7 i,.icone8 i {
+        font-size: 11px;
+    }
+    /* ICONE FEATURETTES FIN */
+
+    /* FONT ICONES FEATURETTES */
+    .fas.fa-info,.fas.fa-info .one,.fas.fa-info .two,.fas.fa-info .three,.fas.fa-info .for,.fas.fa-info .five,.fas.fa-info .six,.fas.fa-info .seven,.fas.fa-info .eight,.fas.fa-info .nine {
+        font-size: 12px;
+        margin-left: 13px;
+        color: white;
+    }
+
+    .fas.fa-cloud-sun,.fas.fa-cloud-sun .one,.fas.fa-cloud-sun .two,.fas.fa-cloud-sun .three,.fas.fa-cloud-sun .for,.fas.fa-cloud-sun .five,.fas.fa-cloud-sun .six,.fas.fa-cloud-sun .seven,.fas.fa-cloud-sun .eight,.fas.fa-cloud-sun .nine {
+        margin-left: -2px;
+    }
+
+    .fas.fa-hiking,.fas.fa-hiking .one,.fas.fa-hiking .two,.fas.fa-hiking .three,.fas.fa-hiking .for,.fas.fa-hiking .five,.fas.fa-hiking .six,.fas.fa-hiking .seven,.fas.fa-hiking .eight,.fas.fa-hiking .nine {
+        margin-left: 0.5px;
+    }
+
+    .fas.fa-map-marked-alt,.fas.fa-map-marked-alt .one,.fas.fa-map-marked-alt .two,.fas.fa-map-marked-alt .three,.fas.fa-map-marked-alt .for,.fas.fa-map-marked-alt .five,.fas.fa-map-marked-alt .six,.fas.fa-map-marked-alt .seven,.fas.fa-map-marked-alt .eight,.fas.fa-map-marked-alt .nine {
+        margin-left: -1.5px;
+    }
+
+    .fas.fa-hamburger,.fas.fa-hamburger .one,.fas.fa-hamburger .two,.fas.fa-hamburger .three,.fas.fa-hamburger .for,.fas.fa-hamburger .five,.fas.fa-hamburger .six,.fas.fa-hamburger .seven,.fas.fa-hamburger .eight,.fas.fa-hamburger .nine {
+        margin-left: -1px;
+    }
+    /* FONT ICONES FEATURETTES FIN */
+
+    /* CLICK BOUTONS INFO FEATURETTES */
+    .clicked {
+        opacity: 1;
+        transition: 1.2s all ease;
+        transform: translateX(9px);
+    }
+    /* CLICK BOUTONS INFO FEATURETTES FIN */
+
+    /* CLICK BOUTONS INFO FEATURETTES PANORAMIQUE */
+    .clicked2 {
+        opacity: 1;
+        transition: 1.2s all ease;
+        transform: translateY(35px) translateX(7px);
+    }
+    /* CLICK BOUTONS INFO FEATURETTES PANORAMIQUE FIN */
+
+    /* CLICK ICONES BOITE METEO FEATURETTES */
+    .clickedmeteo1,.clickedmeteo2,.clickedmeteo4,.clickedmeteo5,.clickedmeteo7,.clickedmeteo8 {
+        opacity: 1;
+        transition: 1.2s all ease;
+        transform: scale(1.1) translateY(3px) translateX(-27px);
+    }
+    /* CLICK ICONES BOITE METEO FEATURETTES FIN */
+
+    /* CLICK ICONES BOITE METEO FEATURETTES PANORAMIQUE */
+    .clickedmeteo3,.clickedmeteo6,.clickedmeteo9 {
+        opacity: 1;
+        transition: 1.2s all ease;
+        transform: scale(1.1) translateY(1px) translateX(-22px);
+    }
+    /* CLICK ICONES BOITE METEO FEATURETTES PANORAMIQUE FIN */
+
+    /* DISPARITION BOUTON ET ICONES BOITE METEO FEATURETTES */
+    .closed {
+        opacity: 0;
+        transition: 1.2s all ease;
+        transform: translateX(9px);
+    }
+    /* DISPARITION BOUTON ET ICONES BOITE METEO FEATURETTES FIN */
+    
+    #chevron {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+{% endblock %}

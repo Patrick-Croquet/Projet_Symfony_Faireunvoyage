@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %} 
+
+{% block title 'Erreur de paiement | ' ~ parent() %} 
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<h1>{{title}}</h1>
+<p>
+    {{paragraphe}} {{ order.user.firstname }} {{ order.user.lastname }},<br /><br />
+    {{paragraphe1}}{{ order.reference }}.<br /> 
+    {{paragraphe2}} {{ order.user.email }}.
+
+</p>
+<a href="{{ path('order') }}" class="btn btn-success">Réessayer le paiement</a>
+
+
+
+<style>
+    h1 {
+        margin-top: 300px;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Contact | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<h1>{{ title }}</h1>
+
+
+{% for message in app.flashes('notice') %}
+    <div class="alert alert-success">{{ message }}</div>
+{% endfor %}
+
+
+<div class="row justify-content-center">
+    
+    <div class="col-lg-6">
+
+        <div class="text-left">
+            {{ form_start (contact_form) }}
+            {{ form_row (contact_form.name, {'label': 'Nom d\'utilisateur', 'attr': {'class': 'input-group', 'placeholder': 'Votre nom d\'utilisateur' }})
+            }}
+            {{ form_row (contact_form.from, {'label': 'Adresse email', 'attr': {'class': 'input-group', 'placeholder': 'Adresse email' }})
+            }}
+            {{ form_row (contact_form.message, {'label': 'Message', 'attr': {'class': 'input-group', 'placeholder': 'Votre message' }})
+            }}
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputFile"></label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted"></small>
+        </div>
+
+        <div class="text-center">
+            <input type="submit" value="envoyer" class="btn btn-outline-success mt-4" style="width: 150px;" />
+        </div>
+        {{ form_end(contact_form) }}
+
+    </div>
+
+    <div class="col-10 col-lg-5">
+
+        <img src="{{image1}}" class="img-thumbnail shadow" id="imgcontact">
+
+    </div>
+</div>
+
+<style>
+    /*MEDIA QUERIES*/
+
+    @media screen and (max-width: 424px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 300px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imgcontact {
+            margin-top: 50px;
+        }
+
+        #chevron {
+            margin-top: 60px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 300px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imgcontact {
+            margin-top: 50px;
+        }
+
+        #chevron {
+            margin-top: 60px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 400px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imgcontact {
+            margin-top: 80px;
+        }
+
+        #chevron {
+            margin-top: 60px;
+        }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1023px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 30px;
+        }
+
+        #imgcontact {
+            margin-top: 30px;
+        }
+
+        .col-lg-6 {
+            padding-right: 30px;
+        }
+
+        .col-lg-5 {
+            padding-left: 30px;
+        }
+
+        #chevron {
+            margin-top: 100px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 30px;
+        }
+
+        #imgcontact {
+            margin-top: 30px;
+        }
+
+        .col-lg-6 {
+            padding-right: 40px;
+        }
+
+        .col-lg-5 {
+            padding-left: 40px;
+        }
+
+        #chevron {
+            margin-top: 100px;
+            margin-bottom: 20px;
+        }
+    }
+
+</style>
+{% endblock %}

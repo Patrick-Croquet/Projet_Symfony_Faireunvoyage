@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Inscription | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+
+<h1 class="text-center">{{title}}</h1>
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-6">
+
+        <div class="text-left">
+            {{ form_start (form) }}
+            {{ form_row (form.lastname, {'label':'Nom', 'attr': {'class': 'input-group', 'placeholder': 'Nom'}}) }}
+            {{ form_row (form.firstname, {'label':'Prénom', 'attr': {'class': 'input-group', 'placeholder': 'Prénom'}})
+            }}
+            {{ form_row (form.email, {'label':'Adresse email', 'attr': {'class': 'input-group', 'placeholder': 'Adresse email'}})
+            }}
+            {{ form_row (form.password, {'label':'Mot de passe', 'attr': {'class': 'input-group', 'placeholder': 'Mot de passe...'}})
+            }}
+            {{ form_row (form.confirm_password, {'label':'Confirmation du mot de passe', 'attr': {'class': 'input-group','placeholder': 'Confirmation du mot de passe...'}})
+            }}
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-outline-success mt-4" style="width: 150px;">Inscription !</button>
+        </div>
+        {{ form_end(form) }}
+
+    </div>
+
+    <div class="col-10 col-lg-5">
+
+        <img src="{{image1}}" class="img-thumbnail shadow" id="imginscription">
+
+    </div>
+
+</div>
+
+<style>
+    /*MEDIA QUERIES*/
+
+    @media screen and (max-width: 424px) {
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imginscription {
+            margin-top: 50px;
+        }
+
+        #chevron {
+            margin-top: 80px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imginscription {
+            margin-top: 50px;
+        }
+
+        #chevron {
+            margin-top: 80px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        #imginscription {
+            margin-top: 80px;
+        }
+
+        #chevron {
+            margin-top: 80px;
+        }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1023px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 30px;
+        }
+
+        #imginscription {
+            margin-top: 30px;
+        }
+
+        .col-lg-6 {
+            padding-right: 30px;
+        }
+
+        .col-lg-5 {
+            padding-left: 30px;
+        }
+
+        #chevron {
+            margin-top: 100px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 30px;
+        }
+
+        #imginscription {
+            margin-top: 30px;
+        }
+
+        .col-lg-6 {
+            padding-right: 40px;
+        }
+
+        .col-lg-5 {
+            padding-left: 40px;
+        }
+
+        #chevron {
+            margin-top: 80px;
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,1985 @@
+<!doctype html>
+
+<html lang="{{ app.request.locale }}">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+    <title>{% block title %}DoDo Le Guide{% endblock %}</title>
+
+
+    {% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/sketchy/bootstrap.min.css"
+        integrity="sha512-AF3OQszBqW7CeiKglwNTnTwPCbJvAo6DVXLbU37Qcw7nPxVPywkPbDCZyGpLu0xqzPeQL2GKAQ5k69hMBTI7LA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous" />
+    <link rel="stylesheets" href="carousel.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/font-awesome-animation@1.1.1/css/font-awesome-animation.css">
+    {% endblock %}
+
+    {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+        integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
+    </script>
+    {% endblock %}
+
+</head>
+
+<body>
+    <header>
+
+        {% if block('carousel') is defined %}
+        <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <!-- <ol class="carousel-indicators">
+                {% for key,header in headers %}
+                <li data-target="#myCarousel" data-slide-to="{{ key }}" {% if key == 0 %}class="active" {% endif %}></li>
+                {% endfor %}
+            </ol>-->
+            <div class="carousel-inner">
+                {% for key,header in headers %}
+                <div class="carousel-item {% if key == 0 %}active{% endif %}"
+                    style="background: url('/uploads/{{ header.illustration }}');background-size:cover;background-position:center;">
+                    <div class="container1">
+                        <img src="/images/pagebase/header/logododo3.png" class="img-fluid" id="logo" />
+                        <div class="carousel-caption faa-float animated faa-slow">
+                            {#<h2 id="titreheader">{{ header.title }}</h2>
+                             <p>{{ header.content }}</p>
+                            <p>
+                                <a class="btn btn-outline-success" href="{{ header.btnUrl }}" role="button"
+                                    id="btnheader"><small>{{ header.btnTitle }}</small></a>
+                            </p> #}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03"
+                aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" id="menuburger"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" />
+                                <div id="text">
+                                    <a href="{{ path('app_home') }}" id="textaccueil">Accueil</a>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh1" />
+                                <div id="textmenu">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Activités</a>
+                                    <div class="dropdown-menu" style="left: -60px" id="dropmenu">
+                                        <a class="dropdown-item" href="{{ path('app_randonnée') }}">Randonnée</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_activitésportive') }}">Sportive</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_plage') }}">Plage</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_visite') }}">Visite</a>
+                                    </div>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh2" />
+                                <div id="textmenu">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Culture</a>
+                                    <div class="dropdown-menu" style="left: -60px" id="dropmenu">
+                                        <a class="dropdown-item" href="{{ path('app_plats') }}">Plats</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_biodiversité') }}">Biodiversité</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_histoire') }}">Histoire</a>
+                                    </div>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh3" />
+                                <div id="text">
+                                    <a href="{{ path('products') }}" id="textboutique">Boutique</a>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh4" />
+                                <div id="text">
+                                    <a href="{{ path('contact') }}" id="textcontact">Contact</a>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100" id="svg-nav-rechercher">
+                                <rect id="shape" height="30" width="100" class="sh5" />
+                                <div id="textmenu">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                        aria-haspopup="true" aria-expanded="false">Rechercher</a>
+                                    <div class="dropdown-menu" style="right: -131px" id="dropmenusearch">
+                                        <div class="container-fluid">
+                                            <form class="d-flex">
+                                                <input class="form-control me-2" type="search" placeholder="Rechercher"
+                                                    id="inputmenusearch">
+                                                <button class="btn btn-outline-success" type="submit"
+                                                    id="buttonmenusearch"><i class="fas fa-search"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="#" class="navbar-brand faa-tada animated-hover faa-slow">
+                    <img src="/images/pagebase/header/gouillat1.png" id="logonav" />
+                </a>
+
+                <div class="nav-item" id="navinscription">
+                    <div class="svg-wrapper">
+                        <svg height="30" width="100">
+                            <rect id="shape" height="30" width="100" class="sh6" />
+                            <div id="text">
+                                <a href="{{ path('security_registration') }}">Inscription</a>
+                            </div>
+                        </svg>
+                    </div>
+                </div>
+                <ul class="nav navbar-nav float-md-right mr-2">
+                    {% if app.user %}
+                    <li class="nav-item dropdown">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh7" />
+                                <div id="textmenu">
+                                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                        aria-haspopup="true" aria-expanded="false">{{ app.user.firstname }}</a>
+
+                                    <div class="dropdown-menu" style="left: -60px" id="dropmenucompte">
+                                        {% if 'ROLE_SUPER_ADMIN' in app.user.roles %}
+                                        <a class="dropdown-item" href="{{ path('account') }}">Mon Compte</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/admin_193ar150">Tableau de bord</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                                        {% else %}
+                                        <a class="dropdown-item" href="{{ path('account') }}">Mon Compte</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <div class="svg-wrapper">
+                            <svg height="30" width="100">
+                                <rect id="shape" height="30" width="100" class="sh8" />
+                                <div id="textmenu">
+                                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                                </div>
+                            </svg>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+                <a class="navbar-brand" href="{{ path('cart') }}">
+                    <img src="{{ asset('images/pagebase/header/shopping-cart.png') }}"
+                        class="cart-icon faa-bounce animated-hover faa-fast" alt="Mon panier" />
+                </a>
+            </div>
+        </nav>
+    </header>
+</body>
+
+<div class="container">
+    
+    {% block body %}{% endblock %}
+    {% include 'flash_messages.html.twig' %}
+</div>
+
+<div class="float-right faa-bounce animated" style="width: 80px;">
+    <a href="#"><img src="{{ asset('images/pagebase/body/chevron-back.svg') }}" id="chevron" /></a>
+</div>
+
+<footer>
+
+                    <div class="d-flex justify-content-center" id="réseaux">
+                        <a href="https://fr-fr.facebook.com/"><img
+                                src="{{ asset('images/pagebase/footer/iconesréseaux/facebook.svg') }}"
+                                class="iconesréseaux faa-spin animated-hover" /></a>
+                        <a href="https://twitter.com/"><img
+                                src="{{ asset('images/pagebase/footer/iconesréseaux/twiter.svg') }}"
+                                class="iconesréseaux faa-spin faa-reverse animated-hover" /></a>
+                        <a href="https://www.instagram.com/"><img
+                                src="{{ asset('images/pagebase/footer/iconesréseaux/insta.svg') }}"
+                                class="iconesréseaux faa-spin animated-hover" /></a>
+                        <a href="https://www.youtube.com/"><img
+                                src="{{ asset('images/pagebase/footer/iconesréseaux/youtube.svg') }}"
+                                class="iconesréseaux faa-spin faa-reverse animated-hover" /></a>
+                    </div>
+                
+                
+                    <div class="d-flex justify-content-center">
+                        <p id="p-footer">
+                            &copy; 2020/{{ 'now'|date("Y", "Europe/Paris") }} &middot; DoDoLeGuide
+                            - <a href="{{ path('app_about') }}" id="a-footer">À propos</a>
+                            - <a href="" id="a-footer">Mentions légales</a>
+                            | <a href="" id="a-footer">Politique de confidentialité</a>
+                            - <a href="{{ path('app_home') }}" id="a-footer">Retour à la page d'accueil</a>
+                        </p>
+                    </div>
+
+</footer>
+
+<style>
+
+    /*MEDIA QUERIES*/
+
+    @media screen and (min-width: 320px) and (max-width: 424px) {
+
+        .example-wrapper {
+            text-align: center;
+            margin: 180px auto;
+            margin-bottom: 70px;
+            max-width: 850px;
+            width: 95%;
+            font: 18px/1.5;
+        }
+
+        .example-wrapper code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+
+        .example-wrapper h1 {
+            margin-top: 280px;
+            margin-bottom: 20px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            z-index: 3;
+        }
+
+        .container1 {
+            height: 200px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin: none;
+        }
+
+        #logo {
+            display: flex;
+            position: relative;
+            z-index: 4;
+            width: 105px;
+            height: 135px;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+
+        .carousel-caption {
+            position: sticky;
+            height: 270px;
+            width: 100%;
+        }
+
+        #titreheader {
+            margin-top: 5px;
+            font-size: 26px;
+            margin-left: 100px;
+            margin-right: 8px;
+            color: #FFFFFF;
+            text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        #btnheader {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-top: 55px;
+            margin-left: 10px;
+        }
+
+        .btn-outline-success {
+            color: #569A24;
+            border-color: #569A24;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+
+        .navbar {
+            height: 40px;
+        }
+
+        .navbar-light .navbar-toggler:hover {
+            -webkit-transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            -ms-transform: scale(1.3);
+            -o-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+        .navbar-light .navbar-toggler {
+            color: #0b93e1;
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            height: 30px;
+            width: 50px;
+
+
+            -webkit-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -moz-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -ms-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -o-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            width: 50px;
+            height: 20px;
+            margin-left: -14px;
+        }
+
+        .navbar.bg-light {
+            border-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            height: auto;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            border: 3px solid #0b93e1;
+            box-shadow: inset 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            background-color: #ffffffa1;
+        }
+
+        .navbar-nav {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            width: 70px;
+            height: 30px;
+        }
+
+        .navbar-brand {
+            padding: 0px;
+            margin: 0px;
+            height: 32px;
+        }
+
+        .nav-link {
+            color: #0b93e1 !important;
+            font-size: 13px;
+            font-weight: 100;
+        }
+
+        .navbar-nav .nav-link {
+            height: 30px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-top: 3px;
+        }
+
+        svg {
+            width: 70px;
+        }
+
+        #svg-nav-rechercher {
+            width: 85px;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            height: 24px;
+            width: 70px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #569A24;
+        }
+
+        rect {
+            width: 70px;
+        }
+
+        #shape {
+            stroke-width: 3px;
+            fill: none;
+            stroke: #0b93e1;
+            stroke-dasharray: 33 400;
+            stroke-dashoffset: -121;
+            transition: 1s all ease;
+        }
+
+        #shape.sh1 {
+            stroke-dasharray: 52 400;
+            stroke-dashoffset: -102;
+        }
+
+        #shape.sh2 {
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh3 {
+            stroke-dasharray: 42 400;
+            stroke-dashoffset: -112;
+        }
+
+        #shape.sh4 {
+            stroke-dasharray: 37 400;
+            stroke-dashoffset: -117;
+        }
+
+        #shape.sh5 {
+            width: 85px;
+            stroke-dasharray: 64 400;
+            stroke-dashoffset: -120;
+        }
+
+        #shape.sh6 {
+            height: 30px;
+            stroke-dasharray: 51 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh7 {
+            height: 30px;
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -110;
+        }
+
+        #shape.sh8 {
+            height: 30px;
+            stroke-dasharray: 46 400;
+            stroke-dashoffset: -108;
+        }
+
+        #logonav {
+            margin-top: 29px;
+            width: 35px;
+            height: 15px;
+        }
+
+        .navbar-nav .dropdown-menu {
+            position: relative;
+        }
+
+        #navinscription {
+            margin-top: 20px;
+        }
+
+        .cart-icon {
+            margin-top: 28px;
+            margin-right: 15px;
+            width: 25px;
+            height: 25px;
+        }
+
+        #textmenu {
+            margin-top: -33px;
+            text-align: center;
+        }
+
+        #text {
+            margin-top: -25px;
+            text-align: center;
+        }
+
+        #text a {
+            color: #0b93e1;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 13px;
+        }
+
+        #textaccueil {
+            margin-left: -4px;
+        }
+
+        #textboutique {
+            margin-left: 4px;
+        }
+
+        #textcontact {
+            margin-left: -1px;
+        }
+
+        #dropmenu {
+            left: 0px !important;
+            min-width: 115px !important;
+        }
+
+        a.dropdown-item {
+            font-size: 15px;
+        }
+
+        .dropdown-item {
+            color: #0b93e1 !important;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            border-top: 2px solid #569A24;
+            border-bottom: 2px solid #569A24;
+        }
+
+        .dropdown-menu {
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 25%);
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #0b93e1;
+        }
+
+        #dropmenusearch {
+            width: 200px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .form-control {
+            border: 2px solid rgb(207, 207, 207) !important;
+        }
+
+        #inputmenusearch {
+            height: 30px;
+        }
+
+        #buttonmenusearch {
+            height: 30px;
+        }
+
+        #dropmenucompte {
+            left: -70px !important;
+            min-width: 140px !important;
+        }
+
+        #chevron {
+            width: 60px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            height: 150px;
+            width: 100%;
+            background-image: url("/images/pagebase/footer/Route-du-volcan1920.200.png");
+        }
+
+        p#p-footer {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+
+        #p-footer {
+            margin-top: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        a#a-footer {
+            font-size: 12.5px;
+        }
+
+        #a-footer {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #a-footer:hover {
+            color: #569A24;
+        }
+
+        #réseaux {
+            margin-top: 30px;
+        }
+
+        .iconesréseaux {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        .example-wrapper {
+            text-align: center;
+            margin: 180px auto;
+            margin-bottom: 70px;
+            max-width: 850px;
+            width: 95%;
+            font: 18px/1.5;
+        }
+
+        .example-wrapper code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+
+        .example-wrapper h1 {
+            margin-top: 300px;
+            margin-bottom: 10px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            z-index: 3;
+        }
+
+        .container1 {
+            height: 200px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin: none;
+        }
+
+        #logo {
+            display: flex;
+            position: relative;
+            z-index: 4;
+            width: 105px;
+            height: 135px;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+
+        .carousel-caption {
+            position: sticky;
+            height: 270px;
+        }
+
+        #titreheader {
+            margin-top: 5px;
+            font-size: 30px;
+            margin-left: 100px;
+            margin-right: 8px;
+            color: #FFFFFF;
+            text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        #btnheader {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-top: 55px;
+            margin-left: 10px;
+        }
+
+        .btn-outline-success {
+            color: #569A24;
+            border-color: #569A24;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+
+        .navbar {
+            height: 40px;
+        }
+
+        .navbar-light .navbar-toggler:hover {
+            -webkit-transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            -ms-transform: scale(1.3);
+            -o-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+
+        .navbar-light .navbar-toggler {
+            color: #0b93e1;
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            height: 30px;
+            width: 50px;
+
+            -webkit-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -moz-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -ms-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -o-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            width: 50px;
+            height: 20px;
+            margin-left: -14px;
+        }
+
+        .navbar.bg-light {
+            border-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            height: auto;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            border: 3px solid #0b93e1;
+            box-shadow: inset 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            background-color: #ffffffa1;
+        }
+
+        .navbar-nav {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            width: 70px;
+            height: 30px;
+        }
+
+        .navbar-brand {
+            padding: 0px;
+            margin: 0px;
+            height: 32px;
+        }
+
+        .nav-link {
+            color: #0b93e1 !important;
+            font-size: 13px;
+            font-weight: 100;
+        }
+
+        .navbar-nav .nav-link {
+            height: 30px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-top: 3px;
+        }
+
+        svg {
+            width: 70px;
+        }
+
+        #svg-nav-rechercher {
+            width: 85px;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            height: 24px;
+            width: 70px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #569A24;
+        }
+
+        rect {
+            width: 70px;
+        }
+
+        #shape {
+            stroke-width: 3px;
+            fill: none;
+            stroke: #0b93e1;
+            stroke-dasharray: 33 400;
+            stroke-dashoffset: -121;
+            transition: 1s all ease;
+        }
+
+        #shape.sh1 {
+            stroke-dasharray: 52 400;
+            stroke-dashoffset: -102;
+        }
+
+        #shape.sh2 {
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh3 {
+            stroke-dasharray: 42 400;
+            stroke-dashoffset: -112;
+        }
+
+        #shape.sh4 {
+            stroke-dasharray: 37 400;
+            stroke-dashoffset: -117;
+        }
+
+        #shape.sh5 {
+            width: 85px;
+            stroke-dasharray: 64 400;
+            stroke-dashoffset: -120;
+        }
+
+        #shape.sh6 {
+            height: 30px;
+            stroke-dasharray: 51 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh7 {
+            height: 30px;
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -110;
+        }
+
+        #shape.sh8 {
+            height: 30px;
+            stroke-dasharray: 46 400;
+            stroke-dashoffset: -108;
+        }
+
+        #logonav {
+            margin-top: 30px;
+            width: 50px;
+            height: 20px;
+        }
+
+        .navbar-nav .dropdown-menu {
+            position: relative;
+        }
+
+        #navinscription {
+            margin-top: 20px;
+        }
+
+        .cart-icon {
+            margin-top: 28px;
+            margin-right: 20px;
+            width: 25px;
+            height: 25px;
+        }
+
+        #textmenu {
+            margin-top: -33px;
+            text-align: center;
+        }
+
+        #text {
+            margin-top: -25px;
+            text-align: center;
+        }
+
+        #text a {
+            color: #0b93e1;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 13px;
+        }
+
+        #textaccueil {
+            margin-left: -4px;
+        }
+
+        #textboutique {
+            margin-left: 4px;
+        }
+
+        #textcontact {
+            margin-left: -1px;
+        }
+
+        #dropmenu {
+            left: 0px !important;
+            min-width: 115px !important;
+        }
+
+        a.dropdown-item {
+            font-size: 15px;
+        }
+
+        .dropdown-item {
+            color: #0b93e1 !important;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            border-top: 2px solid #569A24;
+            border-bottom: 2px solid #569A24;
+        }
+
+        .dropdown-menu {
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 25%);
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #0b93e1;
+        }
+
+        #dropmenusearch {
+            width: 200px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .form-control {
+            border: 2px solid rgb(207, 207, 207) !important;
+        }
+
+        #inputmenusearch {
+            height: 30px;
+        }
+
+        #buttonmenusearch {
+            height: 30px;
+        }
+
+        #dropmenucompte {
+            left: -70px !important;
+            min-width: 140px !important;
+        }
+
+        .mb-5 {
+            margin-bottom: 0px !important;
+            margin-right: 0px !important;
+        }
+
+        #chevron {
+            width: 60px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            height: 150px;
+            width: 100%;
+            background-image: url("/images/pagebase/footer/Route-du-volcan1920.200.png");
+        }
+
+        p#p-footer {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+
+        a#a-footer {
+            font-size: 14px;
+        }
+
+        #réseaux {
+            margin-top: 45px;
+        }
+
+        #p-footer {
+            margin-top: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        #a-footer {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #a-footer:hover {
+            color: #569A24;
+        }
+
+        .iconesréseaux {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+
+        .example-wrapper {
+            text-align: center;
+            margin: 180px auto;
+            margin-bottom: 70px;
+            max-width: 850px;
+            width: 95%;
+            font: 18px/1.5;
+        }
+
+        .example-wrapper code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+
+        .example-wrapper h1 {
+            margin-top: 350px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            z-index: 3;
+        }
+
+        .container1 {
+            height: 250px;
+            padding-right: 0px;
+            padding-left: 0px;
+            margin: none;
+        }
+
+        #logo {
+            display: flex;
+            position: relative;
+            z-index: 4;
+            width: 120px;
+            height: 150px;
+            padding-left: 5px;
+            padding-top: 5px;
+        }
+
+        .carousel-caption {
+            position: sticky;
+            height: 270px;
+        }
+
+        #titreheader {
+            margin-top: 5px;
+            font-size: 45px;
+            margin-left: 100px;
+            margin-right: 8px;
+            color: #FFFFFF;
+            text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        .navbar {
+            height: 40px;
+        }
+
+        .navbar-light .navbar-toggler:hover {
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
+            -ms-transform: scale(1.2);
+            -o-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        .navbar-light .navbar-toggler {
+            color: #0b93e1;
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            height: 30px;
+            width: 50px;
+
+            -webkit-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -moz-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -ms-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            -o-transition: all .5s cubic-bezier(.6, 2, .4, 1);
+            transition: all .5s cubic-bezier(.6, 2, .4, 1);
+        }
+
+        .navbar-light .navbar-toggler-icon {
+            width: 50px;
+            height: 20px;
+            margin-left: -14px;
+        }
+
+        .navbar.bg-light {
+            border-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            height: auto;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: stretch;
+            border: 3px solid #0b93e1;
+            box-shadow: inset 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+            background-color: #ffffffa1;
+        }
+
+        .navbar-nav {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .nav-item {
+            width: 70px;
+            height: 30px;
+        }
+
+        .navbar-brand {
+            margin-right: 0px !important;
+            padding: 0px;
+            margin: 0px;
+            height: 32px;
+        }
+
+        .nav-link {
+            color: #0b93e1 !important;
+            font-size: 13px;
+            font-weight: 100;
+        }
+
+        .navbar-nav .nav-link {
+            height: 30px;
+            padding-left: 16px;
+            padding-right: 16px;
+            margin-top: 3px;
+        }
+
+        svg {
+            width: 70px;
+        }
+
+        #svg-nav-rechercher {
+            width: 85px;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            height: 24px;
+            width: 70px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #569A24;
+        }
+
+        rect {
+            width: 70px;
+        }
+
+        #shape {
+            stroke-width: 3px;
+            fill: none;
+            stroke: #0b93e1;
+            stroke-dasharray: 33 400;
+            stroke-dashoffset: -121;
+            transition: 1s all ease;
+        }
+
+        #shape.sh1 {
+            stroke-dasharray: 52 400;
+            stroke-dashoffset: -102;
+        }
+
+        #shape.sh2 {
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh3 {
+            stroke-dasharray: 42 400;
+            stroke-dashoffset: -112;
+        }
+
+        #shape.sh4 {
+            stroke-dasharray: 37 400;
+            stroke-dashoffset: -117;
+        }
+
+        #shape.sh5 {
+            width: 85px;
+            stroke-dasharray: 64 400;
+            stroke-dashoffset: -120;
+        }
+
+        #shape.sh6 {
+            height: 30px;
+            stroke-dasharray: 51 400;
+            stroke-dashoffset: -109;
+        }
+
+        #shape.sh7 {
+            height: 30px;
+            stroke-dasharray: 45 400;
+            stroke-dashoffset: -110;
+        }
+
+        #shape.sh8 {
+            height: 30px;
+            stroke-dasharray: 46 400;
+            stroke-dashoffset: -108;
+        }
+
+        #logonav {
+            margin-top: 25px;
+            width: 70px;
+            height: 30px;
+        }
+
+        .navbar-nav .dropdown-menu {
+            position: relative;
+        }
+
+        #navinscription {
+            margin-top: 20px;
+        }
+
+        .cart-icon {
+            margin-top: 23px;
+            margin-right: 20px;
+            width: 25px;
+            height: 25px;
+        }
+
+        #textmenu {
+            margin-top: -33px;
+            text-align: center;
+        }
+
+        #text {
+            margin-top: -25px;
+            text-align: center;
+        }
+
+        #text a {
+            color: #0b93e1;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 13px;
+        }
+
+        #textaccueil {
+            margin-left: -4px;
+        }
+
+        #textboutique {
+            margin-left: 4px;
+        }
+
+        #textcontact {
+            margin-left: -1px;
+        }
+
+        #dropmenu {
+            left: 0px !important;
+            min-width: 115px !important;
+        }
+
+        a.dropdown-item {
+            font-size: 15px;
+        }
+
+        .dropdown-item {
+            color: #0b93e1 !important;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            border-top: 2px solid #569A24;
+            border-bottom: 2px solid #569A24;
+        }
+
+        .dropdown-menu {
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 25%);
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #0b93e1;
+        }
+
+        #dropmenusearch {
+            width: 200px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .form-control {
+            border: 2px solid rgb(207, 207, 207) !important;
+        }
+
+        #inputmenusearch {
+            height: 30px;
+        }
+
+        #buttonmenusearch {
+            height: 30px;
+        }
+
+        #dropmenucompte {
+            left: -70px !important;
+            min-width: 140px !important;
+        }
+
+        #chevron {
+            width: 60px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            height: 150px;
+            width: 100%;
+            background-image: url("/images/pagebase/footer/Route-du-volcan1920.200.png");
+        }
+
+        p#p-footer {
+            font-size: 15px;
+            margin-bottom: 0px;
+        }
+
+        a#a-footer {
+            font-size: 14px;
+        }
+
+        #p-footer {
+            margin-top: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        #a-footer {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #a-footer:hover {
+            color: #569A24;
+        }
+
+        #réseaux {
+            margin-top: 45px;
+        }
+
+        .iconesréseaux {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1023px) {
+
+        .example-wrapper {
+            text-align: center;
+            margin: 180px auto;
+            margin-bottom: 70px;
+            max-width: 850px;
+            width: 95%;
+            font: 18px/1.5;
+        }
+
+        .example-wrapper code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+
+        .example-wrapper h1 {
+            margin-top: 450px;
+            margin-bottom: 30px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            z-index: 3;
+        }
+
+        .container1 {
+            padding-right: 0px;
+            padding-left: 0px;
+            margin: none;
+            height: 300px;
+        }
+
+        #logo {
+            display: flex;
+            position: relative;
+            z-index: 4;
+            width: 140px;
+            height: 175px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        #titreheader {
+            font-size: 40px;
+            color: #FFFFFF;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 40px;
+            text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        #btnheader {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-top: 55px;
+            margin-left: 10px;
+        }
+
+        .btn-outline-success {
+            color: #569A24;
+            border-color: #569A24;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+
+        .carousel-caption {
+            position: sticky;
+            height: 270px;
+        }
+
+        .navbar.bg-light {
+            border-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+        }
+
+        .nav-link {
+            color: #0b93e1 !important;
+        }
+
+        .navbar-brand {
+            margin-right: 0px !important;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            width: 100px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        #shape {
+            stroke-width: 3px;
+            fill: none;
+            stroke: #0b93e1;
+            stroke-dasharray: 48 400;
+            stroke-dashoffset: -156;
+            transition: 1s all ease;
+        }
+
+        #shape.sh1 {
+            stroke-dasharray: 65 400;
+            stroke-dashoffset: -148;
+        }
+
+        #shape.sh2 {
+            stroke-dasharray: 55 400;
+            stroke-dashoffset: -153;
+        }
+
+        #shape.sh3 {
+            stroke-dasharray: 59 400;
+            stroke-dashoffset: -150;
+        }
+
+        #shape.sh4 {
+            stroke-dasharray: 51 400;
+            stroke-dashoffset: -154;
+        }
+
+        #shape.sh5 {
+            stroke-dasharray: 80 400;
+            stroke-dashoffset: -140;
+        }
+
+        #shape.sh6 {
+            stroke-dasharray: 70 400;
+            stroke-dashoffset: -145;
+        }
+
+        #shape.sh7 {
+            stroke-dasharray: 55 400;
+            stroke-dashoffset: -153;
+        }
+
+        #shape.sh8 {
+            stroke-dasharray: 58 400;
+            stroke-dashoffset: -150;
+        }
+
+        #logonav {
+            width: 70px;
+            height: 25px;
+        }
+
+        #text {
+            margin-top: -27px;
+            text-align: center;
+        }
+
+        #text a {
+            color: #0b93e1;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 1.1em;
+        }
+
+        #textmenu {
+            margin-top: -33px;
+            text-align: center;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #569A24;
+        }
+
+        .dropdown-item {
+            color: #0b93e1 !important;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            border-top: 2px solid #569A24;
+            border-bottom: 2px solid #569A24;
+        }
+
+        .dropdown-menu {
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 25%);
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #0b93e1;
+        }
+
+        .form-control {
+            border: 2px solid rgb(207, 207, 207) !important;
+        }
+
+        .navbar-light .navbar-toggler {
+            color: #0b93e1;
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .cart-icon {
+            height: 25px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            height: 150px;
+            width: 100%;
+            background-image: url("/images/pagebase/footer/Route-du-volcan1920.200.png");
+        }
+
+        #p-footer {
+            margin-top: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        #a-footer {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #a-footer:hover {
+            color: #569A24;
+        }
+
+        #réseaux {
+            margin-top: 50px;
+        }
+
+        .iconesréseaux {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        .navbar-brand {
+            margin-right: 0px !important;
+        }
+
+        .container1 {
+            padding-right: 0px;
+            padding-left: 0px;
+            margin: none;
+            height: 300px;
+        }
+
+        .example-wrapper h1 {
+            margin-top: 450px;
+            margin-bottom: 30px;
+        }
+
+        .example-wrapper {
+            text-align: center;
+            margin: 180px auto;
+            margin-bottom: 70px;
+            max-width: 850px;
+            width: 95%;
+            font: 18px/1.5;
+        }
+
+        .example-wrapper code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+        }
+
+        #logo {
+            display: flex;
+            position: relative;
+            z-index: 4;
+            width: 140px;
+            height: 175px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+            position: fixed;
+            z-index: 3;
+        }
+
+        #titreheader {
+            font-size: 60px;
+            color: #FFFFFF;
+            margin-left: 100px;
+            margin-right: 100px;
+            margin-top: 40px;
+            text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, .1), 0 0 5px rgba(0, 0, 0, .1), 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0 5px 10px rgba(0, 0, 0, .25), 0 10px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+        }
+
+        #btnheader {
+            position: fixed;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-top: 55px;
+            margin-left: 10px;
+        }
+
+        .btn-outline-success {
+            color: #569A24;
+            border-color: #569A24;
+        }
+
+        .btn-outline-success:hover {
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+
+        .carousel-caption {
+            position: sticky;
+            height: 270px;
+        }
+
+        .navbar.bg-light {
+            border-color: white !important;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+        }
+
+        .nav-link {
+            color: #0b93e1 !important;
+        }
+
+        .svg-wrapper {
+            margin-top: 0;
+            position: relative;
+            width: 100px;
+            height: 30px;
+            display: inline-block;
+            border-radius: 3px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        #shape {
+            stroke-width: 3px;
+            fill: none;
+            stroke: #0b93e1;
+            stroke-dasharray: 48 400;
+            stroke-dashoffset: -156;
+            transition: 1s all ease;
+        }
+
+        #shape.sh1 {
+            stroke-dasharray: 65 400;
+            stroke-dashoffset: -148;
+        }
+
+        #shape.sh2 {
+            stroke-dasharray: 55 400;
+            stroke-dashoffset: -153;
+        }
+
+        #shape.sh3 {
+            stroke-dasharray: 59 400;
+            stroke-dashoffset: -150;
+        }
+
+        #shape.sh4 {
+            stroke-dasharray: 51 400;
+            stroke-dashoffset: -154;
+        }
+
+        #shape.sh5 {
+            stroke-dasharray: 80 400;
+            stroke-dashoffset: -140;
+        }
+
+        #shape.sh6 {
+            stroke-dasharray: 70 400;
+            stroke-dashoffset: -145;
+        }
+
+        #shape.sh7 {
+            stroke-dasharray: 55 400;
+            stroke-dashoffset: -153;
+        }
+
+        #shape.sh8 {
+            stroke-dasharray: 58 400;
+            stroke-dashoffset: -150;
+        }
+
+        #logonav {
+            width: 80px;
+            height: 30px;
+        }
+
+        #text {
+            margin-top: -27px;
+            text-align: center;
+        }
+
+        #text a {
+            color: #0b93e1;
+            text-decoration: none;
+            font-weight: 100;
+            font-size: 1.1em;
+        }
+
+        #textmenu {
+            margin-top: -33px;
+            text-align: center;
+        }
+
+        .svg-wrapper:hover #shape {
+            stroke-dasharray: 50 0;
+            stroke-width: 3px;
+            stroke-dashoffset: 0;
+            stroke: #569A24;
+        }
+
+        .dropdown-item {
+            color: #0b93e1 !important;
+            text-align: center;
+        }
+
+        .dropdown-item:hover {
+            background-color: #fff;
+            border-top: 2px solid #569A24;
+            border-bottom: 2px solid #569A24;
+        }
+
+        .dropdown-menu {
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 1rem rgb(0 0 0 / 25%);
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #0b93e1;
+        }
+
+        .form-control {
+            border: 2px solid rgb(207, 207, 207) !important;
+        }
+
+        .navbar-light .navbar-toggler {
+            color: #0b93e1;
+            border-color: #0b93e1;
+            box-shadow: 0 0.1rem 0.5rem rgba(99, 97, 97, 0.25) !important;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px !important;
+        }
+
+        .cart-icon {
+            height: 25px;
+        }
+
+        footer {
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+            margin-top: 50px;
+            height: 150px;
+            width: 100%;
+            background-image: url("/images/pagebase/footer/Route-du-volcan1920.200.png");
+        }
+
+        #p-footer {
+            margin-top: 20px;
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        #a-footer {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #a-footer:hover {
+            color: #569A24;
+        }
+
+        #réseaux {
+            margin-top: 50px;
+        }
+
+        .iconesréseaux {
+            width: 30px;
+            height: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 255px 25px 225px 25px/25px 225px 25px 255px;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important
+        }
+    }
+</style>
+
+{% block script %}{% endblock %}
+
+</html>

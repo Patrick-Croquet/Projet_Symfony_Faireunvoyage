@@ -1,0 +1,205 @@
+{% extends 'base.html.twig' %} 
+
+{% block title 'Ajouter une adresse | ' ~ parent() %} 
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+
+    <h1>{{ title }}</h1>
+
+    
+    <section>
+        <p class="espace1"></p>
+    </section>
+    
+    <hr>
+    <a href="{{ path('account_address') }}">Retour</a>
+
+    <section>
+        <p class="espace2"></p>
+    </section>
+
+    <hr> {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-md-12">{{ form_row(form.name) }}</div>
+        <div class="col-md-6">{{ form_row(form.firstname) }}</div>
+        <div class="col-md-6">{{ form_row(form.lastname) }}</div>
+        <div class="col-md-6">{{ form_row(form.company) }}</div>
+        <div class="col-md-6">{{ form_row(form.address) }}</div>
+        <div class="col-md-6">{{ form_row(form.postal) }}</div>
+        <div class="col-md-6">{{ form_row(form.city) }}</div>
+        <div class="col-md-6">{{ form_row(form.country) }}</div>
+        <div class="col-md-6">{{ form_row(form.phone) }}</div>
+    </div>
+
+    <section>
+        <p class="espace3"></p>
+    </section>
+
+    {{ form_end(form) }}
+
+</div>
+
+<style>
+
+    /*MEDIA QUERIES*/
+
+    @media screen and (max-width: 424px) {
+
+        h1 {
+            margin-top: 300px;
+            font-size: 24px;
+        }
+    
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+        
+        .btn-primary {
+            color: #569A24;
+            background-color: #fff;
+            border-color: #569A24;
+        }
+    
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+    
+        .espace1 {
+            height: 40px;
+        }
+        .espace2 {
+            height: 0px;
+        }
+        .espace3 {
+            height: 20px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            margin-top: 300px;
+            font-size: 24px;
+        }
+    
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+        
+        .btn-primary {
+            color: #569A24;
+            background-color: #fff;
+            border-color: #569A24;
+        }
+    
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+    
+        .espace1 {
+            height: 60px;
+        }
+        .espace2 {
+            height: 0px;
+        }
+        .espace3 {
+            height: 20px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+        h1 {
+            margin-top: 300px;
+            font-size: 24px;
+        }
+    
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+        
+        .btn-primary {
+            color: #569A24;
+            background-color: #fff;
+            border-color: #569A24;
+        }
+    
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+    
+        .espace1 {
+            height: 60px;
+        }
+        .espace2 {
+            height: 0px;
+        }
+        .espace3 {
+            height: 20px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        
+        h1 {
+            margin-top: 300px;
+            font-size: 30px;
+        }
+    
+        a {
+            color: #0b93e1;
+            font-size: 17px;
+        }
+        a:hover {
+            color: #569A24;
+        }
+
+        label {
+            font-size: 17px;
+        }
+        
+        .btn-primary {
+            color: #569A24;
+            background-color: #fff;
+            border-color: #569A24;
+        }
+    
+        .btn-primary:hover {
+            color: #fff;
+            background-color: #569A24;
+            border-color: #569A24;
+        }
+    
+        .espace1 {
+            height: 60px;
+        }
+        .espace2 {
+            height: 0px;
+        }
+        .espace3 {
+            height: 20px;
+        }
+    }
+
+</style>
+{% endblock %}

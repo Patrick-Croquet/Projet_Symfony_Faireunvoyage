@@ -1,0 +1,402 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Nos produits | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>{{ title1 }}</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3" id="filter">
+        <h4>Filtrer</h4>
+        {{ form(form) }}
+    </div>
+
+    <div class="col-md-9">
+        <div class="text-center">
+            <h2 class="text-center">{{ title2 }}</h2>
+            <hr id="hr1">
+            <small>{{descriptif}}</small>
+            <hr id="hr2">
+        </div>
+
+        <div class="row">
+            {% for product in products %}
+            <div class="col-4 col-sm-3" id="product">
+                {% include 'product/single_product.html.twig' %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<style>
+    /*MEDIA QUERIES*/
+
+    @media screen and (max-width: 424px) {
+
+        .col-md-12 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .col-md-9 {
+            padding-right: 2px;
+            padding-left: 2px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 60px;
+            font-size: 35px;
+        }
+
+        h4 {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #hr1 {
+            margin: 3px;
+        }
+
+        #hr2 {
+            margin: 3px;
+        }
+
+        .form-check-label {
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .form-check {
+            font-size: 12px;
+        }
+
+        #submit {
+            height: 35px;
+        }
+
+        [type=checkbox]::before {
+            left: 0px;
+            width: 13px;
+            height: 14px;
+        }
+
+        [type=checkbox]:checked::after {
+            left: 3px;
+            width: 13px;
+            height: 14px;
+            font-size: 19px;
+        }
+
+        h2 {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+
+        h5 {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .product-item {
+            margin-top: 40px;
+        }
+
+        .product-price {
+            font-size: 13px;
+        }
+
+        .row {
+            margin-left: 0.1px;
+            margin-right: 0.1px;
+
+        }
+
+        .col-4 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+        .col-md-12 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .col-md-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-top: 350px;
+            margin-bottom: 80px;
+            font-size: 35px;
+        }
+
+        h4 {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #hr1 {
+            margin: 3px;
+        }
+
+        #hr2 {
+            margin: 3px;
+        }
+
+        .form-check-label {
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .form-check {
+            font-size: 13px;
+        }
+
+        #submit {
+            height: 35px;
+        }
+
+        [type=checkbox]::before {
+            left: 0px;
+            width: 13px;
+            height: 14px;
+        }
+
+        [type=checkbox]:checked::after {
+            left: 3px;
+            width: 13px;
+            height: 14px;
+            font-size: 19px;
+        }
+
+        h2 {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            font-size: 20px;
+        }
+
+        h5 {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .product-item {
+            margin-top: 40px;
+        }
+
+        .product-price {
+            font-size: 13px;
+        }
+
+        .row {
+            margin-left: 0.1px;
+            margin-right: 0.1px;
+
+        }
+
+        .col-4 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+        
+        .col-md-12 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .col-md-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 45px;
+        }
+
+        h4 {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #hr1 {
+            margin: 3px;
+        }
+
+        #hr2 {
+            margin: 3px;
+        }
+
+        .form-check-label {
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .form-check {
+            font-size: 13px;
+        }
+
+        #submit {
+            height: 35px;
+        }
+
+        [type=checkbox]::before {
+            left: 0px;
+            width: 13px;
+            height: 14px;
+        }
+
+        [type=checkbox]:checked::after {
+            left: 3px;
+            width: 13px;
+            height: 14px;
+            font-size: 19px;
+        }
+
+        h2 {
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+
+        h5 {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .product-item {
+            margin-top: 40px;
+        }
+
+        .product-price {
+            font-size: 13px;
+        }
+
+        .row {
+            margin-left: 0.1px;
+            margin-right: 0.1px;
+
+        }
+
+        .col-4 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .col-md-12 {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .col-md-9 {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 45px;
+        }
+
+        h4 {
+            margin-top: 30px;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        #hr1 {
+            margin: 3px;
+        }
+
+        #hr2 {
+            margin: 3px;
+        }
+
+        .form-check-label {
+            font-size: 13px;
+            padding-left: 20px;
+        }
+
+        .form-check {
+            font-size: 13px;
+        }
+
+        #submit {
+            height: 35px;
+        }
+
+        [type=checkbox]::before {
+            left: 0px;
+            width: 13px;
+            height: 14px;
+        }
+
+        [type=checkbox]:checked::after {
+            left: 3px;
+            width: 13px;
+            height: 14px;
+            font-size: 19px;
+        }
+
+        h2 {
+            margin-bottom: 35px;
+            font-size: 20px;
+        }
+
+        h5 {
+            margin-top: 10px;
+            font-size: 13px;
+        }
+
+        .product-item {
+            margin-top: 40px;
+        }
+
+        .product-price {
+            font-size: 13px;
+        }
+
+        .row {
+            margin-left: 0.1px;
+            margin-right: 0.1px;
+
+        }
+
+        .col-4 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    }
+</style>
+{% endblock %}

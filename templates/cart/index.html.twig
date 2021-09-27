@@ -1,0 +1,327 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mon panier | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<h1>{{title}}</h1>
+
+<section>
+    <p class="espace"></p>
+</section>
+
+
+    <p>Voici l'ensemble de vos produits qui se trouve dans votre panier</p>
+    {% if cart|length > 0 %}
+    
+            <table class="table">
+                
+                <thead>
+                    <tr>
+                        <th scope="col">Produit</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    {% set total = null %}
+
+                    {% for product in cart %}
+                    <tr>
+                        <th>
+                            <img src="/uploads/{{ product.product.illustration }}" alt="{{ product.product.name }}"
+                                height="50px"></br>
+                        </th>
+                        <td>
+                            {{ product.product.name}}</br>
+                            <small>{{ product.product.subtitle }}</small>
+                        </td>
+                        <td>
+                            <a href="{{ path('decrease_to_cart', {'id' : product.product.id }) }}">
+                                <img src="{{ asset('images/pagepanier/minus1.png')}}" height="10px" id="minus">
+                            </a>
+                            x {{ product.quantity }}
+                            <a href="{{ path('add_to_cart', {'id' : product.product.id }) }}">
+                                <img src="{{ asset('images/pagepanier/plus.png')}}" height="10px" id="plus">
+                            </a>
+                        </td>
+                        <td>{{ (product.product.price / 100 )|number_format(2, ',', '.') }} €</td>
+                        <td>{{ ((product.product.price * product.quantity ) / 100 )|number_format(2, ',', '.') }} €</td>
+                        <td>
+                            <a href="{{ path('delete_to_cart', { 'id' : product.product.id}) }}">
+                                <img src="{{ asset('images/pagepanier/trash.png')}}" height="20px" id="trash">
+                            </a>
+                        </td>
+                    </tr>
+                    {% set total = total + (product.product.price * product.quantity) %}
+
+                    {% endfor %}
+                </tbody>
+            </table>
+    
+
+        <div class="text-right mb-5">
+            <b>Nombre de produit :</b> {{ cart|length }}</br>
+            <b>Totale de mon panier :</b> {{ (total / 100)|number_format(2, ',', '.') }} €
+        </div>
+        <div class="text-center">
+            <a href="{{ path('order') }} " class="btn btn-outline-success mt-4">Valider Mon Panier</a>
+        </div>
+        {% else %}
+        <hr>
+        <p><b>Votre Panier est Vide</b></p>
+        {% endif %}
+
+<style>
+    /*MEDIA QUERIES*/
+
+    @media screen and (max-width: 424px) {
+
+
+        .container {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 300px;
+            font-size: 24px;
+        }
+
+        .espace {
+            height: 40px;
+        }
+
+        p {
+            font-size: 13px;
+            text-align: center;
+        }
+        
+        .table th {
+            font-size: 14px;
+            padding: 2px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .table td {
+            font-size: 12px;
+            padding: .0rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        b {
+            font-size: 14px;
+        }
+
+        .text-right {
+            font-size: 14px;
+        }
+
+        #minus {
+            height: 5px;
+        }
+
+        #plus {
+            height: 7px;
+        }
+
+        #trash {
+            height: 14px;
+        }
+
+        small {
+            font-size: 11px;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        .btn-outline-success {
+            width: 150px;
+        }
+
+        #chevron {
+            margin-top: 35px;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem!important;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        .container {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 300px;
+            font-size: 24px;
+        }
+
+        .espace {
+            height: 40px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .table th {
+            font-size: 15px;
+            padding: 3px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .table td {
+            font-size: 14px;
+            padding: .0rem;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        b {
+            font-size: 15px;
+        }
+
+        .text-right {
+            font-size: 14px;
+        }
+
+        #minus {
+            height: 5px;
+        }
+
+        #plus {
+            height: 7px;
+        }
+
+        #trash {
+            height: 14px;
+        }
+
+        small {
+            font-size: 11px;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        .btn-outline-success {
+            width: 150px;
+        }
+
+        #chevron {
+            margin-top: 35px;
+        }
+
+        .mb-4 {
+            margin-bottom: 2rem!important;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+        h1 {
+            text-align: center;
+            margin-top: 350px;
+            font-size: 28px;
+        }
+
+        .espace {
+            height: 50px;
+        }
+
+        p {
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        .table td {
+            font-size: 14px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        #chevron {
+            margin-top: 35px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        
+        h1 {
+            margin-top: 450px;
+            font-size: 30px;
+        }
+
+        .espace {
+            height: 30px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .table th {
+            font-size: 17px;
+        }
+        .table td {
+            font-size: 16px;
+        }
+
+        b {
+            font-size: 17px;
+        }
+
+        .btn-outline-success {
+            width: 200px;
+        }
+
+        a {
+            color: #fff;
+        }
+
+        a:hover {
+            color: #fff;
+        }
+
+        #chevron {
+            margin-top: 35px;
+        }
+    }
+</style>
+{% endblock %}

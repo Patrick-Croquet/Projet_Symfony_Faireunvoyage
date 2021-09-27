@@ -1,0 +1,174 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Ma commande: {{ order.reference }} | DoDo Le Guide{% endblock %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<h1 class="text-center">{{ title }} {{ order.reference }}</h1>
+
+<a href="{{ path('account_order') }}">Retour à mes commandes</a><br/>
+<hr>
+<h6 class="h-titre">Statut de la commande : </h6>
+<p class="p1">
+{% if order.state == 1 %}
+Paiment accepté
+{% elseif order.state == 2 %}
+Préparation en cours
+{% elseif order.state == 3 %}
+Livraison en cours
+{% endif %}
+</p>
+<hr>
+<h6 class="h-titre">{{paragraphe}}</h6> <small>{{ order.createdAt|date("d/m/Y à H:i ", "Europe/Paris") }}</small><br />
+<h6 class="h-titre">{{paragraphe1}}</h6><small>{{ order.reference }}</small><br />
+<h6 class="h-titre">{{paragraphe2}}</h6> <small>{{ order.carriername }}</small>
+<hr class="mb-4">
+<h6 class="h-titre">{{paragraphe3}}</h6>
+
+<table class="table mt-2">
+    <thead>
+        <tr>
+            <th scope="col">Produit</th>
+            <th scope="col">Quantité</th>
+            <th scope="col">Prix unitaire</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in order.orderDetails %}
+        <tr>
+            <td>{{product.product}}</td>
+            <td>x{{product.quantity}}</td>
+            <td>{{(product.price / 100)|number_format(2, ',', '.') }} €</td>
+            <td>{{(product.total / 100)|number_format(2, ',', '.') }} €</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="text-right">
+    {{paragraphe4}}{{(order.getTotal / 100)|number_format(2, ',', '.') }} €<br />
+    {{paragraphe5}}{{(order.carrierprice / 100)|number_format(2, ',', '.') }} €<br />
+    {{paragraphe6}}{{ ((order.carrierPrice + order.getTotal) / 100)|number_format(2, ',', '.') }} €
+</div>
+
+<style>
+
+
+    @media screen and (max-width: 424px) {
+
+        .container {
+            padding-right: 5px;
+            padding-left: 5px;
+        }
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 60px;
+            font-size: 24px;
+        }
+        a {
+            font-size: 13px;
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+
+        .h-titre {
+            font-size: 14px;
+        }
+
+        .p1 {
+            font-size: 13px!important;
+        }
+
+        .table th {
+            font-size: 14px;
+            padding-left: 1px;
+            padding-right: 1px;
+        }
+
+        .table td {
+            font-size: 12px;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .text-right {
+            font-size: 13px;
+        }
+
+        #chevron {
+            margin-top: 50px;
+        }
+        
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            margin-top: 350px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+
+        #chevron {
+            margin-top: 50px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 80px;
+            font-size: 24px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+
+        #chevron {
+            margin-top: 50px;
+        }
+        
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 100px;
+            font-size: 30px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+        a:hover {
+            color: #569A24;
+        }
+
+        #chevron {
+            margin-top: 50px;
+        }
+        
+    }
+
+</style>
+{% endblock %}

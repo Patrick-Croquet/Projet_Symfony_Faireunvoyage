@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %} 
+
+{% block title 'A propos | ' ~ parent() %} 
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+<h1>
+    A Propos De Nous &hearts;
+</h1>
+
+<p><a href="{{ path('app_home') }}">Retour page d'accueil</a></p>
+
+{% endblock %}

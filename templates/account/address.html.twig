@@ -1,0 +1,169 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mes adresses | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+<div class="example-wrapper">
+
+    <h1>{{ title }}</h1>
+
+    <hr>
+    <a href="{{ path('account') }}">Retour sur mon compte</a>
+    <hr>
+    {% if app.user.addresses|length == 0 %}
+
+    <p class="text-center">Vous n'avez pas encore ajouté d'adresse dans votre compte client. Pour en ajouter une
+        veuillez <a href="{{ path('account_address_add') }}">cliquer ici</a> </p>
+    {% else %}
+
+    <div class="row">
+        {% for address in app.user.addresses %}
+        <div class="col-md-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{ address.name }}</h5>
+                    <p class="card-text">
+                        {{ address.address }},<br /> {{ address.postal }} - {{ address.city }} - {{ address.country }}
+                    </p>
+                    <a href="{{ path('account_address_edit', { 'id' : address.id }) }}">Modifier</a> | <a
+                        href="{{ path('account_address_delete', { 'id' : address.id }) }}">Supprimer</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    <hr>
+
+    <div class="espace1"></div>
+
+    <a href="{{ path('account_address_add') }}" class="btn btn-outline-success mt-4">Ajouter une adresse</a>
+
+</div>
+
+<style>
+    @media screen and (max-width: 424px) {
+
+        h1 {
+            margin-top: 450px;
+            margin-bottom: 60px !important;
+            font-size: 24px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        .card {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .espace1 {
+            height: 30px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            margin-top: 450px;
+            margin-bottom: 60px !important;
+            font-size: 24px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        .card {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .espace1 {
+            height: 30px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+        h1 {
+            margin-top: 450px;
+            margin-bottom: 80px !important;
+            font-size: 24px;
+        }
+
+        a {
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        .card-body {
+            padding: 10px 0px 10px 0px;
+        }
+
+        .espace1 {
+            height: 30px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        h1 {
+            margin-top: 450px;
+            margin-bottom: 100px !important;
+            font-size: 30px;
+        }
+
+        a {
+            font-size: 17px;
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        .card-body {
+            padding: 10px 0px 10px 0px;
+        }
+
+        .espace1 {
+            height: 30px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Mon Compte | ' ~ parent() %}
+
+{% block carousel %}<header></header>{% endblock %}
+
+{% block body %}
+
+
+
+<h1 class="text-center">{{ title }}</h1>
+
+
+<div class="row">
+    <div class="col-12">
+
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-4">
+
+                <p class="mt-4 text-center">Bienvenue<span> {{app.user.firstname}} </span>dans votre compte.</p>
+                <hr>
+                <div class="text-center">
+                    - <a href="{{ path('account_password') }}">Modification du mot de passe</a><br />
+                    - <a href="{{ path('account_address') }}">Gérer mes adresses</a><br />
+                    - <a href="{{ path('account_order') }}">Mes commandes</a>
+                    <hr>
+                </div>
+
+                <div class="espace1"></div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<style>
+    @media screen and (max-width: 424px) {
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 50px;
+            font-size: 24px;
+        }
+
+        a {
+            text-align: center;
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        span {
+            color: #0b93e1;
+        }
+
+        .espace1 {
+            height: 125px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 425px) and (max-width: 767px) {
+
+        h1 {
+            margin-top: 300px;
+            margin-bottom: 50px;
+            font-size: 24px;
+        }
+
+        a {
+            text-align: center;
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        span {
+            color: #0b93e1;
+        }
+
+        .espace1 {
+            height: 100px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+        h1 {
+            margin-top: 400px;
+            margin-bottom: 50px;
+            font-size: 24px;
+        }
+
+        a {
+            text-align: center;
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        span {
+            color: #0b93e1;
+        }
+
+        .espace1 {
+            height: 100px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+
+        h1 {
+            margin-top: 450px;
+            margin-bottom: 50px;
+            font-size: 30px;
+        }
+
+        p {
+            font-size: 17px;
+        }
+
+        a {
+            font-size: 17px;
+            text-align: center;
+            color: #0b93e1;
+        }
+
+        a:hover {
+            color: #569A24;
+        }
+
+        span {
+            color: #0b93e1;
+        }
+
+        .espace1 {
+            height: 100px;
+        }
+
+        #chevron {
+            margin-top: 30px;
+        }
+    }
+</style>
+{% endblock %}
